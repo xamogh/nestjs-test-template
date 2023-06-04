@@ -1,0 +1,10 @@
+model Book {
+   id              Int      @id @default(autoincrement())
+   idAuthor        Int
+   idCategory      Int
+   name            String   @unique
+   publicationDate Int?
+   author          Author   @relation(fields: [idAuthor], references: [id])
+   category        Category @relation(fields: [idCategory], references: [id])
+   createdAt       DateTime @default(now())
+}
